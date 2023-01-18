@@ -1,4 +1,4 @@
-# conda_environments
+# Goals
 
 Reinstalling python is always a pain. This repo is a collection of conda commands that worked. Versions and dependencies are always changings. These commands are starting points.
 
