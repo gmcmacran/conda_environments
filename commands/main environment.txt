@@ -1,0 +1,88 @@
+#################################################################
+# Overview
+#
+# Platform: Windows 10
+# Export file: mainEnvCondaFile.txt
+#
+# Highlights:
+# Tensorflow
+#	Runs on Nvidia GPU
+#	Reasonably up to date
+#	No error or warning messages while importing!
+#
+# LightGBM
+# 	Pip installs includes training on GPU
+#
+# Polars
+#	A blazingly fast dataframe library
+#
+# VS Code
+#	Can use VSCode IDE (ipykernel)
+# 	Posit's Quarto works w/ VS code and python. The render button works!
+#
+# Major conda choices
+#	Use mamba solver for quick installs
+# 	Conda channel conda-forge is low priority so TF can be installed.
+#	Explicit channel for polars so it can be installed.
+#	Install lightgm w/ pip for GPU training
+#	Explicit version of matplotlib so plotnine loads w/o error
+# 	Confirm everything is imported w/o error.
+#################################################################
+
+conda update -n base -c defaults conda
+conda install -n base conda-libmamba-solver
+conda config --set solver libmamba
+
+conda config --append channels conda-forge
+
+conda search tensorflow
+conda create -n mainEnv tensorflow=2.10=gpu_py39h9bca9fa_0
+conda env list
+
+conda install ipykernel -n mainEnv
+
+conda install numpy -n mainEnv
+conda install pandas -n mainEnv
+conda install polars -n mainEnv -c conda-forge
+
+conda install statsmodels -n mainEnv
+conda install scikit-learn -n mainEnv
+
+conda install matplotlib=3.5.3 -n mainEnv
+conda install plotnine -n mainEnv
+
+conda install nbclient -n mainEnv
+
+conda activate mainEnv
+pip install lightgbm 
+conda deactivate
+
+conda activate mainEnv
+python
+import tensorflow as tf
+import numpy as np
+import pandas as pd
+import polars as pl
+import statsmodels as sm
+import sklearn as sk
+import plotnine
+import lightgbm 
+
+from tensorflow.config import list_physical_devices
+list_physical_devices()
+exit()
+conda deactivate
+
+S:
+cd "S:\Python\projects\conda_environments\exports"
+conda list -n mainEnv --export > mainEnvCondaFile.txt
+
+
+# conda env remove -n mainEnv
+# conda install siuba -n mainEnv
+# conda update pip -n mainEnv
+
+# conda config --add channels conda-forge
+# conda config --set channel_priority strict
+# conda config --get channels
+# conda config --append channels conda-forge
