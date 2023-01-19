@@ -14,9 +14,9 @@ Machine Learning:
 * Tensorflow running on GPU
 * Lightgbm running on GPU
 * Sci-kit Learn
-* Stats models
+* Statsmodels
 
-Data frame Libraries
+Data Frame Libraries
 * Pandas
 * Polars
 
