@@ -16,11 +16,11 @@ Machine Learning:
 * Sci-kit Learn
 * Statsmodels
 
-Data Frame Libraries
+Data Frame Libraries:
 * Pandas
 * Polars
 
-Visualization
+Visualization:
 * Plotnine (A good python port of ggplot2)
 
 # helpeR Environment
