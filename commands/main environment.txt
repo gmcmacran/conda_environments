@@ -44,6 +44,7 @@ conda install ipykernel -n mainEnv
 conda install numpy -n mainEnv
 conda install pandas -n mainEnv
 conda install polars -n mainEnv -c conda-forge
+conda install pyarrow -n mainEnv
 
 conda install statsmodels -n mainEnv
 conda install scikit-learn -n mainEnv
